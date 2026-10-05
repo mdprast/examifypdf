@@ -177,7 +177,7 @@
                     <div class="flex justify-between items-center mb-4 border-b pb-2">
                         <div>
                             <h3 class="text-lg font-bold">2. Susun Kunci Jawaban & Bobot</h3>
-                            <p class="text-sm text-red-700 mt-1">Pastikan sudah membaca & memahami <b>panduan</b> dalam membuat soal dan menyusun kunci jawaban</p>
+                            <p class="text-sm text-red-700 mt-1">Pastikan sudah memahami <b>panduan</b> dalam menyusun kunci jawaban</p>
                         </div>
                         <button onclick="tambahSoal()" id="btnTambahSoal" class="bg-green-500 text-white px-4 py-2 rounded font-bold hover:bg-green-600 shadow transition">+ Tambah Soal</button>
                     </div>
@@ -306,10 +306,9 @@
 
                     <div class="space-y-6 text-gray-700">
                         <div>
-                            <h3 class="text-xl font-bold text-blue-700 mb-2">1. Format Pembuatan SOAL & Kunci Jawaban</h3>
-                            <p class="mb-2">Buat soal di word dan simpan dalam bentuk PDF, usahakan formatnya dalam bentuk <b></b>dua kolom</b> agar mudah dilihat di layar HP. Pastikan soal tidak ada yang terpotong ke halaman berikutnya</p>
+                            <h3 class="text-xl font-bold text-blue-700 mb-2">1. Format Pembuatan Kunci Jawaban</h3>
                             <p class="mb-2">Agar sistem dapat mengoreksi otomatis dengan akurat 100%, ikuti panduan pengisian kunci berikut berdasarkan tipe soal:</p>
-							<ul class="list-disc ml-6 space-y-2 bg-blue-50 p-4 rounded border border-blue-200">
+                            <ul class="list-disc ml-6 space-y-2 bg-blue-50 p-4 rounded border border-blue-200">
                                 <li><b>Pilihan Ganda Biasa & Benar/Salah:</b> Cukup klik opsi yang benar pada tombol yang disediakan.</li>
                                 <li><b>Pilihan Ganda Kompleks:</b> Klik 2 atau lebih opsi jawaban yang benar.</li>
                                 <li><b>Menjodohkan:</b> Ketikkan pasangan angka dan huruf. Anda boleh memisahkannya dengan koma atau spasi (Misal: <code>1A, 2B, 3C</code> atau <code>1A 2B 3C</code>). Sistem kami secara cerdas akan membersihkan dan mengurutkannya secara otomatis menjadi format <code>1A2B3C</code>.</li>
@@ -320,7 +319,7 @@
 
                         <div>
                             <h3 class="text-xl font-bold text-blue-700 mb-2">2. Keamanan Anti-Hacker (Enkripsi Lapis Ganda)</h3>
-                            <p class="mb-2">Aplikasi ini dilengkapi <b>Sistem Enkripsi 2 Lapis</b>, sehingga siswa tidak dapat membuka soal sebelum waktunya.</p>
+                            <p class="mb-2">Aplikasi ini dilengkapi <b>Sistem Enkripsi 2 Lapis berstandar militer</b>, sehingga MUSTAHIL bagi siswa untuk mencuri soal sebelum waktunya.</p>
                             <ul class="list-disc ml-6 space-y-2">
                                 <li><b>Gembok Pertama (Token):</b> Berikan Token ini bebas kapan saja (misal H-1). Token ini HANYA bisa membuka sampul depan (Informasi Mapel) agar siswa bisa mengisi nama mereka. File PDF soal masih berupa huruf acak yang tidak bisa dibaca.</li>
                                 <li><b>Gembok Kedua (PIN Pengawas):</b> PIN ini HANYA boleh diucapkan secara lisan/ditulis di papan tulis oleh Pengawas ruangan <b>tepat saat bel ujian berbunyi</b>. Hanya dengan PIN inilah file PDF soal terbuka dan ujian dimulai.</li>
@@ -347,24 +346,22 @@
                                 <li>Pada bagian <b>Akses Umum (General Access)</b>, ubah status dari <i>Dibatasi (Restricted)</i> menjadi <b>Siapa saja yang memiliki link (Anyone with the link)</b>.</li>
                                 <li>Pastikan peran di sebelah kanannya adalah <b>Pelihat (Viewer)</b>.</li>
                                 <li>Klik tombol <b>Salin link (Copy link)</b>, lalu klik Selesai.</li>
-                                <li>Bagikan link tersebut ke grup WhatsApp siswa beserta <b>Token Buka File</b>.</li>
-                                <li><b>Tidak ada jaminan</b> aplikasi dapat digunakan/lancar untuk semua jenis HP Android.</li>
+                                <li><b>KEMBALI KE PORTAL INI</b>, paste/tempel link tersebut pada kolom <b>"Link Google Drive"</b> di kartu ujian yang bersangkutan (Halaman Beranda), lalu klik <b>Simpan Link</b>.</li>
+                                <li>Kini Anda <b>cukup membagikan Token saja</b> kepada siswa. Aplikasi siswa akan otomatis mendownload soal tersebut.</li>
                             </ol>
                         </div>
 						
-						<div>
-                            <h3 class="text-xl font-bold text-blue-700 mb-2">5. Cara Membagikan Soal via Whatsapp atau yang lain</h3>
-                            <p class="mb-2">Anda bis mengirim soal enc via whatssap atau yang lain yang dapat diunduh oleh siswa:</p>
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-700 mb-2">5. Cara Siswa Mengakses Ujian</h3>
                             <ol class="list-decimal ml-6 space-y-2 bg-blue-50 p-4 rounded border border-blue-200">
-                                <li>Setelah siswa mendownload, aplikasi dibuka.</li>
-                                <li>Pilih tombol <b>cari file di HP</b>.</li>
-                                <li>Cari file yang diunduh tadi dan klik file tersebut.</li>
-                                <li>Masukkan <b>Token</b> yang dikirimkan guru.</li>
-                                <li>Jika benar, maka detil soal akan terbuka.</li>
-                                <li>Masukkan <b>PIN rilis soal</b> untuk memulai mengerjakan soal.</li>
-                                <li><b>Tidak ada jaminan</b> aplikasi dapat digunakan/lancar untuk semua jenis HP Android.</li>
+                                <li>Siswa membuka aplikasi Examify CBT di HP mereka.</li>
+                                <li>Siswa cukup memasukkan <b>Token Ujian</b> yang Anda berikan, lalu menekan tombol <b>Sinkronisasi Soal</b>.</li>
+                                <li>Aplikasi akan otomatis mengunduh soal dari link Google Drive yang sudah Anda simpan di portal guru ini.</li>
+                                <li>Jika berhasil, halaman identitas akan terbuka untuk mengisi nama siswa.</li>
+                                <li>Terakhir, siswa memasukkan <b>PIN rilis soal</b> untuk mulai mengerjakan saat diinstruksikan oleh pengawas.</li>
                             </ol>
                         </div>
+
                         <div>
                             <h3 class="text-xl font-bold text-blue-700 mb-2">6. Pengumpulan Ujian (Server)</h3>
                             <ul class="list-disc ml-6 space-y-2 bg-yellow-50 p-4 rounded border border-yellow-200">
@@ -514,6 +511,33 @@
             }
         }
 
+        // FUNGSI BARU: MENYIMPAN LINK GOOGLE DRIVE KE SUPABASE
+        async function simpanLinkSoal(id, btn) {
+            const newVal = document.getElementById(`link_${id}`).value.trim();
+            let updateVal = newVal ? newVal : null;
+            
+            // Peringatan jika bukan dari google drive
+            if (updateVal && !updateVal.includes('drive.google.com')) {
+                if(!confirm("Tautan tampaknya bukan dari Google Drive. Apakah Anda yakin ingin menyimpannya?")) return;
+            }
+
+            const originalText = btn.innerText;
+            btn.innerText = "Menyimpan...";
+            btn.disabled = true;
+
+            const { error } = await supabaseClient.from('daftar_ujian').update({ link_soal: updateVal }).eq('id', id);
+            
+            btn.innerText = originalText;
+            btn.disabled = false;
+
+            if (error) {
+                alert("Gagal menyimpan link soal: " + error.message);
+            } else {
+                alert("Link soal berhasil disimpan! Siswa sekarang bisa langsung sinkronisasi soal hanya dengan menggunakan Token.");
+                tarikDaftarUjian();
+            }
+        }
+
         async function tarikDaftarUjian() {
             const wadah = document.getElementById('listUjian');
             wadah.innerHTML = '<p class="text-gray-500">Memuat data...</p>';
@@ -550,6 +574,16 @@
                                   <div class="w-11 h-6 bg-red-400 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-500 shadow-inner"></div>
                                 </label>
                             </div>
+                        </div>
+
+                        <!-- KOLOM LINK GOOGLE DRIVE -->
+                        <div class="bg-blue-50 p-2 rounded border border-blue-100 mb-3 mt-2">
+                            <label class="text-xs font-bold text-blue-800 block mb-1">🔗 Link Google Drive (Soal .enc):</label>
+                            <div class="flex items-center">
+                                <input type="url" id="link_${u.id}" value="${u.link_soal || ''}" placeholder="Paste link Google Drive di sini..." class="border border-blue-300 rounded p-1 text-xs flex-1 bg-white outline-none">
+                                <button onclick="simpanLinkSoal('${u.id}', this)" class="ml-2 bg-blue-600 text-white text-xs px-3 py-1.5 rounded font-bold hover:bg-blue-700 transition shadow">Simpan Link</button>
+                            </div>
+                            <p class="text-[10px] text-gray-500 mt-1 italic">Siswa akan otomatis mendownload soal dari link ini menggunakan Token.</p>
                         </div>
 
                         <div class="bg-purple-50 p-2 rounded border border-purple-100 mb-3 mt-2">
@@ -826,17 +860,7 @@
             });
 
             if(rpcError || rpcResult === false) {
-                let pesanError = "Gagal membuat ujian! Pastikan kredit Anda cukup.";
-                
-                if (rpcError) {
-                    if (rpcError.code === '23505' || rpcError.message.toLowerCase().includes("duplicate") || rpcError.message.toLowerCase().includes("unique")) {
-                        pesanError = `GAGAL: Token "${token}" sudah pernah digunakan! Silakan ganti dengan kombinasi token lain yang unik.`;
-                    } else {
-                        pesanError = `Gagal: ${rpcError.message}`;
-                    }
-                }
-                
-                alert(pesanError);
+                alert("Gagal membuat ujian! Pastikan kredit Anda cukup.");
                 btn.innerText = "Buat File Ujian (-1 Kredit)";
                 btn.disabled = false;
                 document.getElementById('genPdf').disabled = false;
@@ -873,13 +897,7 @@
                 link.download = namaUjianBersih + "_" + namaMapelBersih + ".enc"; 
                 
                 link.click();
-                
-                // REDIRECT OTOMATIS KE BERANDA SETELAH SUKSES
-                document.getElementById('genStatus').innerText = "SUKSES! File .enc telah diunduh. Mengalihkan ke Beranda...";
-                setTimeout(() => {
-                    bukaBeranda();
-                    document.getElementById('genStatus').innerText = ""; 
-                }, 1500);
+                document.getElementById('genStatus').innerText = "SUKSES! File .enc telah diunduh. Silakan kembali ke Beranda.";
             };
             reader.readAsDataURL(file);
         }
