@@ -357,7 +357,7 @@
                 </div>
             </div>
 
-            <div id="page-panduan" class="hidden">
+          <div id="page-panduan" class="hidden">
                 <div class="bg-white shadow rounded-lg p-8">
                     <h2 class="text-3xl font-black text-blue-800 mb-6 border-b-2 border-blue-200 pb-4">Buku Panduan Penggunaan Examify PDF</h2>
                     <div class="bg-red-50 border-l-4 border-red-600 p-4 mb-8 rounded">
@@ -383,8 +383,8 @@
                             <h3 class="text-xl font-bold text-blue-700 mb-2">2. Keamanan Anti-Hacker (Enkripsi Lapis Ganda)</h3>
                             <p class="mb-2">Aplikasi ini dilengkapi <b>Sistem Enkripsi 2 Lapis</b>, sehingga siswa tidak dapat membuka soal sebelum waktunya.</p>
                             <ul class="list-disc ml-6 space-y-2">
-                                <li><b>Gembok Pertama (Token):</b> Berikan Token ini bebas kapan saja (misal H-1). Token ini digunakan siswa untuk mengunduh, menyinkronkan file dari Cloud Server, dan membuka Informasi Ujian (Sampul).</li>
-                                <li><b>Gembok Kedua (PIN Pengawas):</b> PIN ini HANYA boleh diucapkan secara lisan/ditulis di papan tulis oleh Pengawas ruangan <b>tepat saat bel ujian berbunyi</b>. Hanya dengan PIN inilah PDF soal di perangkat siswa akan didekripsi (terbuka) dan ujian dimulai.</li>
+                                <li><b>Gembok Pertama (Token):</b> Berikan Token ini bebas kapan saja (misal H-1). Token ini digunakan siswa untuk menyinkronkan (mengunduh) file dari Cloud ke HP mereka.</li>
+                                <li><b>Gembok Kedua (PIN Pengawas):</b> PIN ini HANYA boleh diucapkan secara lisan/ditulis di papan tulis oleh Pengawas ruangan <b>tepat saat bel ujian berbunyi</b>. Hanya dengan PIN inilah file PDF soal terbuka dan ujian dimulai.</li>
                             </ul>
                         </div>
 
@@ -393,39 +393,43 @@
                             <ul class="list-disc ml-6 space-y-2">
                                 <li>Siapkan soal ujian Anda dalam format <b>PDF</b>.</li>
                                 <li>Klik tombol <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-bold">+ Buat Ujian Baru</span> di Beranda.</li>
-                                <li>Isi identitas ujian, termasuk <b>Token Buka File</b> dan <b>PIN Mulai Ujian</b>. Layar sebelah kanan akan menampilkan preview PDF Anda.</li>
-                                <li>Susun kunci jawaban dan atur <b>Poin Benar (+)</b> dan <b>Poin Salah (-)</b>. Poin salah sangat berguna untuk soal tipe olimpiade.</li>
-                                <li>Klik Buat File. Aplikasi akan menyimpan Token Anda ke server Cloud dan mengunduh file cadangan (*backup*) berekstensi <b>.enc</b> ke laptop Anda.</li>
+                                <li>Isi identitas ujian, termasuk <b>Token Buka File</b> dan <b>PIN Mulai Ujian</b>.</li>
+                                <li>Susun kunci jawaban dan atur <b>Poin Benar (+)</b> dan <b>Poin Salah (-)</b>. Poin salah sangat berguna untuk soal tipe olimpiade (Tulis -1 jika ingin jawaban salah dikurangi nilainya).</li>
+                                <li>Klik Buat File. Aplikasi akan mengunci PDF Anda dan mengunduh file berekstensi <b>.enc</b>.</li>
                             </ul>
                         </div>
 
                         <div>
-                            <h3 class="text-xl font-bold text-blue-700 mb-2">4. Distribusi Otomatis via Cloud Sync (Disarankan)</h3>
-                            <p class="mb-2">Dengan fitur Cloud Sync, ujian akan tersinkronisasi langsung ke aplikasi siswa secara otomatis, mempermudah distribusi tanpa repot *share link*!</p>
+                            <h3 class="text-xl font-bold text-blue-700 mb-2">4. Distribusi Soal via Cloud Sync (Sangat Disarankan)</h3>
+                            <p class="mb-2">Agar siswa tidak repot mencari file di memori HP mereka, gunakan fitur Sinkronisasi Cloud. Berikut langkahnya:</p>
                             <ol class="list-decimal ml-6 space-y-2 bg-blue-50 p-4 rounded border border-blue-200">
-                                <li>Setelah Anda membuat ujian dan file `.enc` terunduh ke komputer Anda, token beserta detail ujian otomatis tersimpan di Server Cloud kami.</li>
-                                <li>Siswa cukup masuk ke aplikasi CBT, mengklik tab <b>Sinkronisasi Otomatis</b>, dan mengetikkan <b>Token Ujian</b> yang Anda berikan.</li>
-                                <li>Aplikasi siswa akan menarik file dari server dan langsung masuk ke layar Tunggu PIN Pengawas.</li>
+                                <li>Buka Google Drive Anda, lalu klik <b>Baru (New) -> Upload File</b>. Pilih file <b>.enc</b> yang baru saja Anda buat.</li>
+                                <li>Setelah ter-upload, klik kanan pada file tersebut dan pilih <b>Bagikan (Share)</b>.</li>
+                                <li>Pada bagian <b>Akses Umum (General Access)</b>, ubah status menjadi <b>"Siapa saja yang memiliki link" (Anyone with the link)</b>. Pastikan perannya adalah <b>Pelihat (Viewer)</b>.</li>
+                                <li>Salin link tersebut, lalu kembali ke Beranda Portal Guru.</li>
+                                <li>Pada Kartu Ujian yang bersangkutan, tempel (<i>paste</i>) link tersebut ke kolom <b>Link Google Drive</b> dan klik Simpan.</li>
+                                <li>Selesai! Saat ujian, siswa cukup membuka tab "Sinkronisasi Cloud", mengetikkan <b>Token Ujian</b>, dan soal akan otomatis terunduh ke HP mereka.</li>
                             </ol>
                         </div>
 						
 						<div>
-                            <h3 class="text-xl font-bold text-blue-700 mb-2">5. Distribusi Manual (Offline / File .enc)</h3>
-                            <p class="mb-2">Jika kuota internet sekolah/siswa bermasalah, atau koneksi server terganggu, sistem kami menyediakan opsi *Offline-First* yang tangguh:</p>
+                            <h3 class="text-xl font-bold text-blue-700 mb-2">5. Distribusi Manual (Jika Cloud Sync Gagal)</h3>
+                            <p class="mb-2">Jika koneksi internet sekolah sangat buruk atau link Google Drive bermasalah, Anda tetap bisa mengirimkan file langsung (Offline-First):</p>
                             <ol class="list-decimal ml-6 space-y-2 bg-blue-50 p-4 rounded border border-blue-200">
-                                <li>Kirimkan file cadangan <b>.enc</b> (yang terunduh saat Anda membuat soal) langsung ke grup WhatsApp siswa atau salin menggunakan Flashdisk.</li>
-                                <li>Siswa mengunduh file tersebut ke penyimpanan HP mereka.</li>
-                                <li>Siswa membuka aplikasi CBT, memilih tab <b>Manual (File Lokal)</b>, lalu mencari file <b>.enc</b> tersebut di memori HP mereka.</li>
-                                <li>Siswa tetap memerlukan <b>Token</b> dan <b>PIN</b> untuk membukanya. Soal tetap aman dari kebocoran meskipun file sudah berada di HP siswa sejak H-1.</li>
+                                <li>Kirimkan file <b>.enc</b> yang Anda unduh dari Portal Guru ke grup WhatsApp kelas atau via Flashdisk.</li>
+                                <li>Siswa mengunduh/menyimpan file tersebut ke HP mereka.</li>
+                                <li>Di aplikasi CBT Siswa, siswa membuka tab <b>Pilih File / Link</b>.</li>
+                                <li>Siswa menekan tombol <b>Cari File di HP</b> dan memilih file .enc tersebut.</li>
+                                <li>Siswa memasukkan <b>Token</b> dan <b>PIN</b> seperti biasa untuk memulai ujian.</li>
                             </ol>
                         </div>
 
                         <div>
                             <h3 class="text-xl font-bold text-blue-700 mb-2">6. Pengumpulan Ujian (Server)</h3>
                             <ul class="list-disc ml-6 space-y-2 bg-yellow-50 p-4 rounded border border-yellow-200">
-                                <li>Aplikasi CBT (terutama versi web) mendeteksi pergerakan siswa. Jika siswa keluar dari layar aplikasi untuk mencari jawaban di Google, sistem akan memberi peringatan. Jika melanggar hingga batas maksimal (3x), ujian akan dikumpulkan paksa.</li>
-                                <li>Aplikasi siswa telah dilengkapi fitur <b>Kirim Ulang Otomatis (Auto-Retry)</b>. Jika sinyal putus atau server penuh saat mengumpulkan, aplikasi akan mencoba mengirim ulang secara otomatis di latar belakang.</li>
-                                <li><b>TIPS PENGAWAS:</b> Hindari memberikan instruksi pengumpulan serentak dengan aba-aba hitung mundur (Misal: <i>"Semuanya klik Selesai dalam 3, 2, 1!"</i>). Hal ini dapat menyebabkan antrean data (*bottleneck*) yang terlalu menumpuk di server. Biarkan siswa menekan tombol "Selesai" secara bergantian.</li>
+                                <li>Aplikasi siswa telah dilengkapi fitur <b>Kirim Ulang Otomatis (Auto-Retry)</b>. Jika sinyal putus atau server penuh saat mengumpulkan, aplikasi akan mencoba mengirim ulang secara otomatis di latar belakang sebanyak 3x.</li>
+                                <li><b>TIPS PENGAWAS:</b> Hindari memberikan instruksi pengumpulan serentak dengan aba-aba hitung mundur (Misal: <i>"Semuanya klik Selesai dalam 3, 2, 1!"</i>). Hal ini dapat menyebabkan antrean data yang terlalu menumpuk. Biarkan siswa menekan tombol "Selesai" secara natural saat mereka sudah yakin.</li>
+                                <li><b>Tidak ada jaminan</b> aplikasi dan server selalu dalam keadaan lancar.</li>
                             </ul>
                         </div>
                     </div>
