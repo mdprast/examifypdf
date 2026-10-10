@@ -93,17 +93,17 @@
                 <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
             <h2 class="text-xl font-black text-gray-800 mb-2">Ujian Berhasil Dibuat!</h2>
-            <p class="text-sm text-gray-600 mb-4 text-left">File ujian (berakhiran <b>.enc</b>) telah terunduh ke komputer Anda.</p>
+            <p class="text-sm text-gray-600 mb-4 text-left">File ujian (berakhiran <b>.enc</b>) telah terunduh ke perangkat Anda.</p>
             
             <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 text-left mb-5 shadow-inner">
-                <h3 class="font-bold text-blue-800 mb-2 text-sm">💡 Langkah Selanjutnya (Direkomendasikan):</h3>
+                <h3 class="font-bold text-blue-800 mb-2 text-sm">💡 Panduan Distribusi (Sistem Cloud Sync):</h3>
                 <ol class="list-decimal ml-5 space-y-2 text-sm text-blue-900">
-                    <li>Unggah file <b>.enc</b> tersebut ke akun <b>Google Drive</b> Anda.</li>
-                    <li>Ubah pengaturan akses tautan file tersebut menjadi <b>"Siapa saja yang memiliki link"</b> (<i>Anyone with the link</i>).</li>
-                    <li>Salin tautan tersebut, lalu tempel (<i>paste</i>) ke kolom link soal pada kartu ujian di Beranda agar siswa dapat mengunduhnya secara instan via Token.</li>
+                    <li>Unggah file <b>.enc</b> yang baru saja terunduh ke akun <b>Google Drive</b> Anda.</li>
+                    <li>Ubah hak akses tautan file tersebut menjadi <b>"Siapa saja yang memiliki link"</b> (<i>Anyone with the link</i>).</li>
+                    <li>Salin tautan tersebut, lalu tempel (<i>paste</i>) ke kolom <b>Link Google Drive</b> pada Kartu Ujian di Beranda. Siswa kini bisa mengunduh soal secara otomatis hanya dengan memasukkan Token!</li>
                 </ol>
-                <div class="mt-4 p-3 bg-red-50 border-l-4 border-red-500 rounded text-xs text-red-800">
-                    <b>Penting:</b> Harap jalankan simulasi mandiri terlebih dahulu. Masukkan Token dan PIN ke aplikasi siswa untuk memastikan file berhasil diunduh, soal terbuka dengan sempurna, dan kunci jawaban telah akurat.
+                <div class="mt-4 p-3 bg-red-50 border-l-4 border-red-500 rounded text-xs text-red-800 leading-relaxed">
+                    <b>Saran & Uji Coba:</b> Sebelum ujian sesungguhnya dimulai, sangat disarankan bagi Guru untuk melakukan uji coba mandiri di aplikasi CBT Siswa. Masukkan Token dan PIN ujian untuk memastikan fitur Sinkronisasi berjalan lancar, halaman soal terbuka dengan sempurna, dan kunci jawaban telah sesuai.
                 </div>
             </div>
             
@@ -210,7 +210,7 @@
                     <div class="flex justify-between items-center mb-4 border-b pb-2">
                         <div>
                             <h3 class="text-lg font-bold">2. Susun Kunci Jawaban & Bobot</h3>
-                            <p class="text-sm text-red-700 mt-1">Pastikan sudah memahami <b>panduan</b> dalam menyusun kunci jawaban</p>
+                            <p class="text-sm text-red-700 mt-1">Pastikan sudah membaca & memahami <b>panduan</b> dalam menyusun kunci jawaban</p>
                         </div>
                         <button onclick="tambahSoal()" id="btnTambahSoal" class="bg-green-500 text-white px-4 py-2 rounded font-bold hover:bg-green-600 shadow transition">+ Tambah Soal</button>
                     </div>
@@ -355,7 +355,7 @@
                             <h3 class="text-xl font-bold text-blue-700 mb-2">2. Keamanan Anti-Hacker (Enkripsi Lapis Ganda)</h3>
                             <p class="mb-2">Aplikasi ini dilengkapi <b>Sistem Enkripsi 2 Lapis</b>, sehingga siswa tidak dapat membuka soal sebelum waktunya.</p>
                             <ul class="list-disc ml-6 space-y-2">
-                                <li><b>Gembok Pertama (Token):</b> Berikan Token ini bebas kapan saja (misal H-1). Token ini HANYA bisa membuka sampul depan (Informasi Mapel) agar siswa bisa mengisi nama mereka. File PDF soal masih berupa huruf acak yang tidak bisa dibaca.</li>
+                                <li><b>Gembok Pertama (Token):</b> Berikan Token ini bebas kapan saja (misal H-1). Token ini digunakan siswa untuk menyinkronkan (mengunduh) file dari Cloud ke HP mereka[cite: 1, 2].</li>
                                 <li><b>Gembok Kedua (PIN Pengawas):</b> PIN ini HANYA boleh diucapkan secara lisan/ditulis di papan tulis oleh Pengawas ruangan <b>tepat saat bel ujian berbunyi</b>. Hanya dengan PIN inilah file PDF soal terbuka dan ujian dimulai.</li>
                             </ul>
                         </div>
@@ -372,32 +372,30 @@
                         </div>
 
                         <div>
-                            <h3 class="text-xl font-bold text-blue-700 mb-2">4. Cara Membagikan Soal via Google Drive (Sangat Disarankan)</h3>
-                            <p class="mb-2">Agar tidak membebani memori HP siswa dan server sekolah, Anda disarankan menggunakan Google Drive. Berikut langkahnya:</p>
+                            <h3 class="text-xl font-bold text-blue-700 mb-2">4. Distribusi Soal via Cloud Sync (Sangat Disarankan)</h3>
+                            <p class="mb-2">Agar siswa tidak repot mencari file di memori HP mereka, gunakan fitur Sinkronisasi Cloud. Berikut langkahnya:</p>
                             <ol class="list-decimal ml-6 space-y-2 bg-blue-50 p-4 rounded border border-blue-200">
-                                <li>Buka Google Drive Anda, lalu klik <b>Baru (New) -> Upload File</b>. Pilih file <b>.enc</b> yang baru saja dibuat.</li>
-                                <li>Setelah ter-upload, klik kanan pada <b>file</b> tersebut dan pilih <b>Bagikan (Share)</b>.</li>
-                                <li>Pada bagian <b>Akses Umum (General Access)</b>, ubah status dari <i>Dibatasi (Restricted)</i> menjadi <b>Siapa saja yang memiliki link (Anyone with the link)</b>.</li>
-                                <li>Pastikan peran di sebelah kanannya adalah <b>Pelihat (Viewer)</b>.</li>
-                                <li>Klik tombol <b>Salin link (Copy link)</b>, lalu klik Selesai.</li>
-                                <li>Bagikan link tersebut ke grup WhatsApp siswa beserta <b>Token Buka File</b>.</li>
-                                <li><b>Tidak ada jaminan</b> aplikasi dapat digunakan/lancar untuk semua jenis HP Android.</li>
+                                <li>Buka Google Drive Anda, lalu klik <b>Baru (New) -> Upload File</b>. Pilih file <b>.enc</b> yang baru saja Anda buat.</li>
+                                <li>Setelah ter-upload, klik kanan pada file tersebut dan pilih <b>Bagikan (Share)</b>.</li>
+                                <li>Pada bagian <b>Akses Umum (General Access)</b>, ubah status menjadi <b>"Siapa saja yang memiliki link" (Anyone with the link)</b>. Pastikan perannya adalah <b>Pelihat (Viewer)</b>.</li>
+                                <li>Salin link tersebut, lalu kembali ke Beranda Portal Guru.</li>
+                                <li>Pada Kartu Ujian yang bersangkutan, tempel (<i>paste</i>) link tersebut ke kolom <b>Link Google Drive</b> dan klik Simpan.</li>
+                                <li>Selesai! Saat ujian, siswa cukup membuka tab "Sinkronisasi Cloud", mengetikkan <b>Token Ujian</b>, dan soal akan otomatis terunduh ke HP mereka[cite: 1, 2].</li>
                             </ol>
                         </div>
 						
 						<div>
-                            <h3 class="text-xl font-bold text-blue-700 mb-2">5. Cara Membagikan Soal via Whatsapp atau yang lain</h3>
-                            <p class="mb-2">Anda bis mengirim soal enc via whatssap atau yang lain yang dapat diunduh oleh siswa:</p>
+                            <h3 class="text-xl font-bold text-blue-700 mb-2">5. Distribusi Manual (Jika Cloud Sync Gagal)</h3>
+                            <p class="mb-2">Jika koneksi internet sekolah sangat buruk atau link Google Drive bermasalah, Anda tetap bisa mengirimkan file langsung (Offline-First)[cite: 1, 2]:</p>
                             <ol class="list-decimal ml-6 space-y-2 bg-blue-50 p-4 rounded border border-blue-200">
-                                <li>Setelah siswa mendownload, aplikasi dibuka.</li>
-                                <li>Pilih tombol <b>cari file di HP</b>.</li>
-                                <li>Cari file yang diunduh tadi dan klik file tersebut.</li>
-                                <li>Masukkan <b>Token</b> yang dikirimkan guru.</li>
-                                <li>Jika benar, maka detil soal akan terbuka.</li>
-                                <li>Masukkan <b>PIN rilis soal</b> untuk memulai mengerjakan soal.</li>
-                                <li><b>Tidak ada jaminan</b> aplikasi dapat digunakan/lancar untuk semua jenis HP Android.</li>
+                                <li>Kirimkan file <b>.enc</b> yang Anda unduh dari Portal Guru ke grup WhatsApp kelas atau via Flashdisk.</li>
+                                <li>Siswa mengunduh/menyimpan file tersebut ke HP mereka.</li>
+                                <li>Di aplikasi CBT Siswa, siswa membuka tab <b>Pilih File / Link</b>.</li>
+                                <li>Siswa menekan tombol <b>Cari File di HP</b> dan memilih file .enc tersebut[cite: 3].</li>
+                                <li>Siswa memasukkan <b>Token</b> dan <b>PIN</b> seperti biasa untuk memulai ujian.</li>
                             </ol>
                         </div>
+
                         <div>
                             <h3 class="text-xl font-bold text-blue-700 mb-2">6. Pengumpulan Ujian (Server)</h3>
                             <ul class="list-disc ml-6 space-y-2 bg-yellow-50 p-4 rounded border border-yellow-200">
