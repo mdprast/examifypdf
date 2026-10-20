@@ -100,10 +100,10 @@
                 <ol class="list-decimal ml-5 space-y-2 text-sm text-blue-900">
                     <li>Unggah file <b>.enc</b> yang baru saja terunduh ke akun <b>Google Drive</b> Anda.</li>
                     <li>Ubah hak akses tautan file tersebut menjadi <b>"Siapa saja yang memiliki link"</b> (<i>Anyone with the link</i>).</li>
-                    <li>Salin tautan tersebut, lalu tempel (<i>paste</i>) ke kolom <b>Link Google Drive</b> pada Kartu Ujian di Beranda. Siswa kini bisa mengunduh soal secara otomatis hanya dengan memasukkan Token!</li>
+                    <li>Salin tautan tersebut, lalu tempel (<i>paste</i>) ke kolom <b>Link Google Drive</b> pada Kartu Ujian di Beranda. Siswa kini bisa mengunduh soal secara otomatis hanya dengan memasukkan Kode Sinkronisasi (Token)!</li>
                 </ol>
                 <div class="mt-4 p-3 bg-red-50 border-l-4 border-red-500 rounded text-xs text-red-800 leading-relaxed">
-                    <b>Saran & Uji Coba:</b> Sebelum ujian sesungguhnya dimulai, sangat disarankan bagi Guru untuk melakukan uji coba mandiri di aplikasi CBT Siswa. Masukkan Token dan PIN ujian untuk memastikan fitur Sinkronisasi berjalan lancar, halaman soal terbuka dengan sempurna, dan kunci jawaban telah sesuai.
+                    <b>Saran & Uji Coba:</b> Sebelum ujian sesungguhnya dimulai, sangat disarankan bagi Guru untuk melakukan uji coba mandiri di aplikasi CBT Siswa. Masukkan Kode Sinkronisasi (Token) dan PIN Pengawas untuk memastikan fitur Sinkronisasi berjalan lancar, halaman soal terbuka dengan sempurna, dan kunci jawaban telah sesuai.
                 </div>
             </div>
             
@@ -184,11 +184,11 @@
                                 <div><label class="block text-sm font-medium">Nama Ujian (Bebas)</label><input type="text" id="genNama" placeholder="Misal: PTS Genap" class="mt-1 w-full p-2 border rounded font-bold"></div>
                                 <div><label class="block text-sm font-medium">Mata Pelajaran</label><input type="text" id="genMapel" placeholder="Misal: Matematika" class="mt-1 w-full p-2 border rounded"></div>
                                 <div>
-                                    <label class="block text-sm font-medium text-blue-700 font-bold">Token (.enc) - Unik</label>
+                                    <label class="block text-sm font-medium text-blue-700 font-bold">Kode Sinkronisasi / Token (.enc)</label>
                                     <input type="text" id="genToken" placeholder="Misal: MTK72026" class="mt-1 w-full p-2 border-2 border-blue-400 rounded font-black text-blue-700 uppercase" oninput="this.value = this.value.replace(/\s/g, '')">
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-medium text-red-600 font-bold">PIN Mulai (Pengawas)</label>
+                                    <label class="block text-sm font-medium text-red-600 font-bold">PIN Pengawas (Mulai Ujian)</label>
                                     <input type="text" id="genPin" placeholder="Misal: 112233" class="mt-1 w-full p-2 border-2 border-red-400 rounded font-black text-red-600 uppercase" oninput="this.value = this.value.replace(/\s/g, '')">
                                 </div>
                                 
@@ -207,7 +207,7 @@
                                 
                                 <div class="col-span-2 bg-blue-50 border border-blue-200 p-3 rounded flex items-center mt-2">
                                     <input type="checkbox" id="genTampilSkor" class="w-5 h-5 mr-3 cursor-pointer" checked>
-                                    <label for="genTampilSkor" class="text-sm font-bold text-blue-800 cursor-pointer">Tampilkan Skor Akhir Kepada Siswa</label>
+                                    <label for="genTampilSkor" class="text-sm font-bold text-blue-800 cursor-pointer">Tampilkan Rincian Skor & Nilai Akhir Kepada Siswa</label>
                                 </div>
                             </div>
                         </div>
@@ -227,7 +227,7 @@
                                     <p id="infoTotalSoal" class="text-xl font-black text-blue-700 mt-1">0</p>
                                 </div>
                                 <div class="text-center mb-2 md:mb-0">
-                                    <p class="text-[10px] text-green-600 font-bold uppercase tracking-wider">Poin Benar (+)</p>
+                                    <p class="text-[10px] text-green-600 font-bold uppercase tracking-wider">Total Skor Maksimal (+)</p>
                                     <p id="infoTotalPoinBenar" class="text-xl font-black text-green-600 mt-1">0</p>
                                 </div>
                                 <div class="text-center">
@@ -241,12 +241,12 @@
                                     <thead class="bg-gray-100 sticky top-0 z-10 shadow-sm text-xs">
                                         <tr>
                                             <th class="p-2 border text-center w-8">No</th>
-                                            <th class="p-2 border w-16 text-center">Hal PDF</th>
-                                            <th class="p-2 border w-32">Tipe Soal</th>
+                                            <th class="p-2 border w-14 text-center">Hal PDF</th>
+                                            <th class="p-2 border w-36">Tipe Soal</th>
                                             <th class="p-2 border">Kunci Jawaban</th>
-                                            <th class="p-2 border text-center w-16" title="Poin Benar">Poin+<br><input type="number" id="quickPoinBenar" class="w-full text-center border rounded mt-1 text-green-600 font-bold" value="1" min="0" oninput="setSemuaPoinBenar(this.value)"></th>
-                                            <th class="p-2 border text-center w-16" title="Poin Salah">Poin-<br><input type="number" id="quickPoinSalah" class="w-full text-center border rounded mt-1 text-red-600 font-bold" value="0" max="0" oninput="setSemuaPoinSalah(this.value)"></th>
-                                            <th class="p-2 border text-center w-10">❌</th>
+                                            <th class="p-2 border text-center w-14" title="Poin Benar">Poin+<br><input type="number" id="quickPoinBenar" class="w-full text-center border rounded mt-1 text-green-600 font-bold" value="1" min="0" oninput="setSemuaPoinBenar(this.value)"></th>
+                                            <th class="p-2 border text-center w-14" title="Poin Salah">Poin-<br><input type="number" id="quickPoinSalah" class="w-full text-center border rounded mt-1 text-red-600 font-bold" value="0" max="0" oninput="setSemuaPoinSalah(this.value)"></th>
+                                            <th class="p-2 border text-center w-8">❌</th>
                                         </tr>
                                     </thead>
                                     <tbody id="soalTableBody" class="text-sm"></tbody>
@@ -273,7 +273,7 @@
                             <div id="pdfPlaceholder" class="w-full flex-1 border-2 border-dashed border-gray-300 rounded bg-gray-50 flex flex-col items-center justify-center text-gray-400 p-6 text-center">
                                 <svg class="w-16 h-16 mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                                 <p class="font-bold text-gray-500">Belum Ada PDF Terpilih</p>
-                                <p class="text-sm mt-2">Pilih file PDF soal di kolom Pengaturan Ujian untuk melihat *preview* secara langsung di sini.</p>
+                                <p class="text-sm mt-2">Pilih file PDF soal di kolom Pengaturan Ujian untuk melihat <i>preview</i> secara langsung di sini.</p>
                             </div>
                         </div>
                     </div>
@@ -291,8 +291,8 @@
                     </div>
                     <div class="text-right">
                         <p class="text-xs text-gray-500 mb-1 font-bold">Kunci Akses</p>
-                        <p class="text-sm font-bold text-blue-700 bg-blue-100 px-3 py-1 rounded inline-block mb-1" id="infoTokenUjian">Token: -</p>
-                        <p class="text-sm font-bold text-red-600 bg-red-100 px-3 py-1 rounded inline-block" id="infoPinUjian">PIN: -</p>
+                        <p class="text-sm font-bold text-blue-700 bg-blue-100 px-3 py-1 rounded inline-block mb-1" id="infoTokenUjian">Kode Sinkronisasi: -</p>
+                        <p class="text-sm font-bold text-red-600 bg-red-100 px-3 py-1 rounded inline-block" id="infoPinUjian">PIN Pengawas: -</p>
                     </div>
                 </div>
 
@@ -303,7 +303,7 @@
 
                 <div class="grid grid-cols-3 gap-6 mb-8">
                     <div class="bg-white p-6 rounded-lg shadow border-l-4 border-blue-500"><div class="text-sm text-gray-500 font-bold">Total Siswa Masuk</div><div id="statTotal" class="text-4xl font-bold mt-2 text-blue-600">0</div></div>
-                    <div class="bg-white p-6 rounded-lg shadow border-l-4 border-green-500"><div class="text-sm text-gray-500 font-bold">Rata-Rata Kelas</div><div id="statRata" class="text-4xl font-bold mt-2 text-green-600">0</div></div>
+                    <div class="bg-white p-6 rounded-lg shadow border-l-4 border-green-500"><div class="text-sm text-gray-500 font-bold">Rata-Rata Nilai</div><div id="statRata" class="text-4xl font-bold mt-2 text-green-600">0</div></div>
 
                     <div class="bg-white p-4 rounded-lg shadow flex flex-col justify-center items-center h-32 relative">
                         <div class="absolute top-2 left-2 flex items-center bg-gray-100 px-2 py-1 rounded border">
@@ -315,7 +315,7 @@
                 </div>
 
                 <div class="bg-yellow-50 border border-yellow-300 p-3 mb-4 rounded text-sm text-yellow-800">
-                    ℹ️ <b>Catatan:</b> Skor akhir di bawah ini dihitung otomatis dan <b>belum termasuk koreksi soal Uraian</b>. Silakan unduh file Excel untuk membaca dan menilai jawaban uraian secara manual.
+                    ℹ️ <b>Catatan:</b> Nilai Akhir di bawah ini dihitung otomatis dan <b>belum termasuk koreksi soal Uraian</b>. Silakan unduh file Excel untuk membaca dan menilai jawaban uraian secara manual.
                 </div>
 
                 <div class="bg-white shadow rounded-lg overflow-hidden">
@@ -335,12 +335,13 @@
                                 <tr>
                                     <th class="p-4 w-12 cursor-pointer hover:bg-gray-200 transition" onclick="sortTable('rank')" title="Urutkan Peringkat">Rank ⇕</th>
                                     <th class="p-4 cursor-pointer hover:bg-gray-200 transition" onclick="sortTable('nama_siswa')" title="Urutkan Abjad">Nama Siswa ⇕</th>
+                                    <th class="p-4 cursor-pointer hover:bg-gray-200 transition" onclick="sortTable('asal_sekolah')" title="Urutkan Sekolah">Sekolah ⇕</th>
                                     <th class="p-4 cursor-pointer hover:bg-gray-200 transition" onclick="sortTable('kelas')" title="Urutkan Kelas">Kelas ⇕</th>
                                     <th class="p-4 text-center cursor-pointer hover:bg-gray-200 transition" onclick="sortTable('no_absen')">No. Absen ⇕</th>
                                     <th class="p-4 text-center cursor-pointer hover:bg-gray-200 transition" onclick="sortTable('ruang')">Ruang ⇕</th>
-                                    <th class="p-4 text-center cursor-pointer hover:bg-gray-200 transition" onclick="sortTable('durasi')">Durasi Kerjakan ⇕</th>
+                                    <th class="p-4 text-center cursor-pointer hover:bg-gray-200 transition" onclick="sortTable('durasi')">Durasi ⇕</th>
                                     <th class="p-4 text-center cursor-pointer hover:bg-gray-200 transition" onclick="sortTable('created_at')">Waktu Kumpul ⇕</th>
-                                    <th class="p-4 text-center cursor-pointer hover:bg-gray-200 transition" onclick="sortTable('skor')">Skor ⇕</th>
+                                    <th class="p-4 text-center cursor-pointer hover:bg-gray-200 transition" onclick="sortTable('skor')">Nilai Akhir ⇕</th>
                                 </tr>
                             </thead>
                             <tbody id="nilaiBody" class="divide-y"></tbody>
@@ -369,13 +370,14 @@
                     <div class="space-y-6 text-gray-700">
                         <div>
                             <h3 class="text-xl font-bold text-blue-700 mb-2">1. Format Pembuatan SOAL & Kunci Jawaban</h3>
-                            <p class="mb-2">Buat soal di word dan simpan dalam bentuk PDF, usahakan formatnya dalam bentuk <b>dua kolom</b> agar mudah dilihat di layar HP. Pastikan soal tidak ada yang terpotong ke halaman berikutnya</p>
+                            <p class="mb-2">Buat soal di Word dan simpan dalam bentuk PDF, usahakan formatnya dalam bentuk <b>dua kolom</b> agar mudah dilihat di layar HP. Pastikan soal tidak ada yang terpotong ke halaman berikutnya.</p>
                             <p class="mb-2">Agar sistem dapat mengoreksi otomatis dengan akurat 100%, ikuti panduan pengisian kunci berikut berdasarkan tipe soal:</p>
-							<ul class="list-disc ml-6 space-y-2 bg-blue-50 p-4 rounded border border-blue-200">
-                                <li><b>Pilihan Ganda Biasa & Benar/Salah:</b> Cukup klik opsi yang benar pada tombol yang disediakan.</li>
+                            <ul class="list-disc ml-6 space-y-2 bg-blue-50 p-4 rounded border border-blue-200">
+                                <li><b>Pilihan Ganda Biasa & Benar/Salah (1 Pernyataan):</b> Cukup klik opsi yang benar pada tombol yang disediakan.</li>
+                                <li><b>B/S Kompleks (2 s.d 5 Pernyataan - Model TKA/AKM):</b> Klik kunci <code>B</code> atau <code>S</code> pada setiap baris pernyataan secara berurutan. Siswa wajib menjawab seluruh pernyataan dengan urutan yang tepat.</li>
                                 <li><b>Pilihan Ganda Kompleks:</b> Klik 2 atau lebih opsi jawaban yang benar.</li>
                                 <li><b>Menjodohkan:</b> Ketikkan pasangan angka dan huruf. Anda boleh memisahkannya dengan koma atau spasi (Misal: <code>1A, 2B, 3C</code> atau <code>1A 2B 3C</code>). Sistem kami secara cerdas akan membersihkan dan mengurutkannya secara otomatis menjadi format <code>1A2B3C</code>.</li>
-                                <li><b>Isian Singkat:</b> Ketik <b>jawaban pasti (Sama Persis/Exact Match)</b> tanpa embel-embel satuan. Misal jika jawaban adalah 50 cm, maka tulis kuncinya: <code>50</code>. Berikan instruksi di naskah PDF ujian agar siswa cukup menjawab angkanya saja tanpa mengetik satuan. Jika siswa menambahkan spasi/kata lain, akan dianggap salah.</li>
+                                <li><b>Isian Singkat:</b> Ketik <b>jawaban pasti (Sama Persis/Exact Match)</b> tanpa embel-embel satuan. Misal jika jawaban adalah 50 cm, maka tulis kuncinya: <code>50</code>. Berikan instruksi di naskah PDF ujian agar siswa cukup menjawab angkanya saja tanpa mengetik satuan.</li>
                                 <li><b>Uraian:</b> Kosongkan saja. Sistem <b>TIDAK</b> menilai soal uraian secara otomatis. Anda wajib mengunduh rekap file Excel di akhir ujian untuk membaca hasil uraian dan memberi nilai manual.</li>
                             </ul>
                         </div>
@@ -384,7 +386,7 @@
                             <h3 class="text-xl font-bold text-blue-700 mb-2">2. Keamanan Anti-Hacker (Enkripsi Lapis Ganda)</h3>
                             <p class="mb-2">Aplikasi ini dilengkapi <b>Sistem Enkripsi 2 Lapis</b>, sehingga siswa tidak dapat membuka soal sebelum waktunya.</p>
                             <ul class="list-disc ml-6 space-y-2">
-                                <li><b>Gembok Pertama (Token):</b> Berikan Token ini bebas kapan saja (misal H-1). Token ini digunakan siswa untuk menyinkronkan (mengunduh) file dari Cloud ke HP mereka.</li>
+                                <li><b>Gembok Pertama (Kode Sinkronisasi / Token):</b> Berikan kode ini kapan saja (misal H-1). Kode ini digunakan siswa untuk menyinkronkan (mengunduh) paket file dari Cloud ke HP mereka.</li>
                                 <li><b>Gembok Kedua (PIN Pengawas):</b> PIN ini HANYA boleh diucapkan secara lisan/ditulis di papan tulis oleh Pengawas ruangan <b>tepat saat bel ujian berbunyi</b>. Hanya dengan PIN inilah file PDF soal terbuka dan ujian dimulai.</li>
                             </ul>
                         </div>
@@ -394,9 +396,9 @@
                             <ul class="list-disc ml-6 space-y-2">
                                 <li>Siapkan soal ujian Anda dalam format <b>PDF</b>.</li>
                                 <li>Klik tombol <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-bold">+ Buat Ujian Baru</span> di Beranda.</li>
-                                <li>Isi identitas ujian, termasuk <b>Token Buka File</b> dan <b>PIN Mulai Ujian</b>. Layar sebelah kanan akan menampilkan preview PDF Anda.</li>
+                                <li>Isi identitas ujian, termasuk <b>Kode Sinkronisasi (Token)</b> dan <b>PIN Pengawas</b>. Layar sebelah kanan akan menampilkan preview PDF Anda.</li>
                                 <li>Susun kunci jawaban dan atur <b>Poin Benar (+)</b> dan <b>Poin Salah (-)</b>. Poin salah sangat berguna untuk soal tipe olimpiade.</li>
-                                <li>Klik Buat File. Aplikasi akan menyimpan Token Anda ke server Cloud dan mengunduh file cadangan (*backup*) berekstensi <b>.enc</b> ke laptop Anda.</li>
+                                <li>Klik Buat File. Aplikasi akan menyimpan Kode Sinkronisasi Anda ke server Cloud dan mengunduh file cadangan (<i>backup</i>) berekstensi <b>.enc</b> ke laptop Anda.</li>
                             </ul>
                         </div>
 
@@ -409,19 +411,19 @@
                                 <li>Pada bagian <b>Akses Umum (General Access)</b>, ubah status menjadi <b>"Siapa saja yang memiliki link" (Anyone with the link)</b>. Pastikan perannya adalah <b>Pelihat (Viewer)</b>.</li>
                                 <li>Salin link tersebut, lalu kembali ke Beranda Portal Guru.</li>
                                 <li>Pada Kartu Ujian yang bersangkutan, tempel (<i>paste</i>) link tersebut ke kolom <b>Link Google Drive</b> dan klik Simpan.</li>
-                                <li>Selesai! Saat ujian, siswa cukup membuka tab "Sinkronisasi Cloud", mengetikkan <b>Token Ujian</b>, dan soal akan otomatis terunduh ke HP mereka.</li>
+                                <li>Selesai! Saat ujian, siswa cukup membuka tab "Sinkron Cloud", mengetikkan <b>Kode Sinkronisasi (Token)</b>, dan soal akan otomatis terunduh ke HP mereka.</li>
                             </ol>
                         </div>
-						
-						<div>
+                        
+                        <div>
                             <h3 class="text-xl font-bold text-blue-700 mb-2">5. Distribusi Manual (Jika Cloud Sync Gagal)</h3>
                             <p class="mb-2">Jika koneksi internet sekolah sangat buruk atau link Google Drive bermasalah, Anda tetap bisa mengirimkan file langsung (Offline-First):</p>
                             <ol class="list-decimal ml-6 space-y-2 bg-blue-50 p-4 rounded border border-blue-200">
                                 <li>Kirimkan file <b>.enc</b> yang Anda unduh dari Portal Guru ke grup WhatsApp kelas atau via Flashdisk.</li>
                                 <li>Siswa mengunduh/menyimpan file tersebut ke HP mereka.</li>
-                                <li>Di aplikasi CBT Siswa, siswa membuka tab <b>Pilih File / Link</b>.</li>
+                                <li>Di aplikasi CBT Siswa, siswa membuka tab <b>File Manual</b>.</li>
                                 <li>Siswa menekan tombol <b>Cari File di HP</b> dan memilih file .enc tersebut.</li>
-                                <li>Siswa memasukkan <b>Token</b> dan <b>PIN</b> seperti biasa untuk memulai ujian.</li>
+                                <li>Siswa memasukkan <b>Kode Sinkronisasi (Token)</b> dan <b>PIN Pengawas</b> seperti biasa untuk memulai ujian.</li>
                             </ol>
                         </div>
 
@@ -592,7 +594,6 @@
             }
         }
 
-        // FUNGSI MENYIMPAN LINK GOOGLE DRIVE
         async function simpanLinkSoal(id, btn) {
             const newVal = document.getElementById(`link_${id}`).value.trim();
             let updateVal = newVal ? newVal : null;
@@ -613,7 +614,7 @@
             if (error) {
                 alert("Gagal menyimpan link soal: " + error.message);
             } else {
-                alert("Link soal berhasil disimpan! Siswa sekarang bisa langsung sinkronisasi soal hanya dengan menggunakan Token.");
+                alert("Link soal berhasil disimpan! Siswa sekarang bisa langsung sinkronisasi soal hanya dengan menggunakan Kode Sinkronisasi (Token).");
                 tarikDaftarUjian();
             }
         }
@@ -632,8 +633,6 @@
 
             let htmlString = '';
             daftarUjianCache.forEach((u, index) => {
-                
-                let batasTeks = u.batas_waktu ? u.batas_waktu.replace('T', ' Jam ') : 'Tanpa Batas Waktu';
                 let jadwalMulaiTeks = u.tanggal ? u.tanggal.replace('T', ' Jam ') : '-';
 
                 htmlString += `
@@ -654,14 +653,13 @@
                             </div>
                         </div>
 
-                        <!-- KOLOM LINK GOOGLE DRIVE (YANG SEMPAT TERLEWAT) -->
                         <div class="bg-blue-50 p-2 rounded border border-blue-100 mb-3 mt-2">
                             <label class="text-xs font-bold text-blue-800 block mb-1">🔗 Link Google Drive (Soal .enc):</label>
                             <div class="flex items-center">
                                 <input type="url" id="link_${u.id}" value="${u.link_soal || ''}" placeholder="Paste link Google Drive di sini..." class="border border-blue-300 rounded p-1 text-xs flex-1 bg-white outline-none">
                                 <button onclick="simpanLinkSoal('${u.id}', this)" class="ml-2 bg-blue-600 text-white text-xs px-3 py-1.5 rounded font-bold hover:bg-blue-700 transition shadow">Simpan Link</button>
                             </div>
-                            <p class="text-[10px] text-gray-500 mt-1 italic">Siswa otomatis mendownload soal dari link ini menggunakan Token.</p>
+                            <p class="text-[10px] text-gray-500 mt-1 italic">Siswa otomatis mengunduh soal dari link ini menggunakan Kode Sinkronisasi.</p>
                         </div>
 
                         <div class="bg-purple-50 p-2 rounded border border-purple-100 mb-3 mt-2">
@@ -673,8 +671,8 @@
                         </div>
 
                         <div class="flex space-x-2 mb-4">
-                            <p class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded font-bold border border-blue-200 flex-1 text-center truncate">🔑 Token: ${u.token}</p>
-                            <p class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded font-bold border border-red-200 flex-1 text-center truncate">🔒 PIN: ${u.pin || '-'}</p>
+                            <p class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded font-bold border border-blue-200 flex-1 text-center truncate" title="Kode Sinkronisasi / Token">🔑 Kode: ${u.token}</p>
+                            <p class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded font-bold border border-red-200 flex-1 text-center truncate" title="PIN Pengawas">🔒 PIN: ${u.pin || '-'}</p>
                         </div>
 
                         <div class="flex space-x-2">
@@ -759,8 +757,8 @@
             document.getElementById('infoNamaUjian').innerText = u.nama_ujian;
             let jadwalMulaiTeks = u.tanggal ? u.tanggal.replace('T', ' Jam ') : '-';
             document.getElementById('infoDetailUjian').innerText = `Mapel: ${u.mapel} | Mulai: ${jadwalMulaiTeks}`;
-            document.getElementById('infoTokenUjian').innerText = `Token: ${u.token}`;
-            document.getElementById('infoPinUjian').innerText = `PIN: ${u.pin || '-'}`;
+            document.getElementById('infoTokenUjian').innerText = `Kode Sinkronisasi: ${u.token}`;
+            document.getElementById('infoPinUjian').innerText = `PIN Pengawas: ${u.pin || '-'}`;
 
             tokenUjianAktif = u.token;
             setTabAktif(false, false, true, false);
@@ -790,7 +788,6 @@
             document.getElementById('genBatasWaktu').value = '';
             document.getElementById('genPdf').disabled = false;
             
-            // Reset Preview PDF
             document.getElementById('pdfViewer').src = '';
             document.getElementById('pdfViewer').classList.add('hidden');
             document.getElementById('pdfPlaceholder').classList.remove('hidden');
@@ -823,7 +820,11 @@
                         <option value="pg_kompleks_3">PG Kompleks (3 Opsi)</option>
                         <option value="pg_kompleks_4">PG Kompleks (4 Opsi)</option>
                         <option value="pg_kompleks_5">PG Kompleks (5 Opsi)</option>
-                        <option value="tf">Benar / Salah</option>
+                        <option value="tf">Benar / Salah (1 Pernyataan)</option>
+                        <option value="tf_kompleks_2">B/S Kompleks (2 Pernyataan)</option>
+                        <option value="tf_kompleks_3">B/S Kompleks (3 Pernyataan)</option>
+                        <option value="tf_kompleks_4">B/S Kompleks (4 Pernyataan)</option>
+                        <option value="tf_kompleks_5">B/S Kompleks (5 Pernyataan)</option>
                         <option value="jodoh">Menjodohkan</option>
                         <option value="isian">Isian Singkat</option>
                         <option value="uraian">Uraian</option>
@@ -853,23 +854,36 @@
                 const count = parseInt(tipe.split('_')[1]);
                 const opsi = ['A','B','C','D','E'].slice(0, count);
                 html += `<div class="flex space-x-1">`;
-                opsi.forEach(o => html += `<button onclick="setPG(${id}, '${o}', this)" class="btn-opsi-${id} border border-gray-300 w-6 h-6 text-xs rounded bg-gray-100 font-bold">${o}</button>`);
+                opsi.forEach(o => html += `<button type="button" onclick="setPG(${id}, '${o}', this)" class="btn-opsi-${id} border border-gray-300 w-6 h-6 text-xs rounded bg-gray-100 font-bold">${o}</button>`);
                 html += `</div>`;
             } 
             else if (tipe.startsWith('pg_kompleks_')) {
                 const count = parseInt(tipe.split('_')[2]);
                 const opsi = ['A','B','C','D','E'].slice(0, count);
                 html += `<div class="flex space-x-1">`;
-                opsi.forEach(o => { html += `<button onclick="toggleKompleks(${id}, '${o}', this)" class="btn-kompleks-${id} border border-gray-300 w-6 h-6 text-xs rounded bg-gray-100 font-bold" data-val="${o}">${o}</button>`; });
+                opsi.forEach(o => { html += `<button type="button" onclick="toggleKompleks(${id}, '${o}', this)" class="btn-kompleks-${id} border border-gray-300 w-6 h-6 text-xs rounded bg-gray-100 font-bold" data-val="${o}">${o}</button>`; });
                 html += `</div>`;
             } 
             else if (tipe === 'tf') {
                 html += `<div class="flex space-x-1">
-                    <button onclick="setPG(${id}, 'B', this)" class="btn-opsi-${id} border px-2 py-1 text-xs rounded bg-gray-100 font-bold text-green-600">B</button>
-                    <button onclick="setPG(${id}, 'S', this)" class="btn-opsi-${id} border px-2 py-1 text-xs rounded bg-gray-100 font-bold text-red-600">S</button>
+                    <button type="button" onclick="setPG(${id}, 'B', this)" class="btn-opsi-${id} border px-2 py-1 text-xs rounded bg-gray-100 font-bold text-green-600">B</button>
+                    <button type="button" onclick="setPG(${id}, 'S', this)" class="btn-opsi-${id} border px-2 py-1 text-xs rounded bg-gray-100 font-bold text-red-600">S</button>
                 </div>`;
-            } else if (tipe === 'jodoh' || tipe === 'isian') {
-                html += `<input type="text" class="border p-1 text-xs w-full uppercase" onkeyup="updateTeks(${id}, this)" placeholder="Jawaban...">`;
+            }
+            else if (tipe.startsWith('tf_kompleks_')) {
+                const count = parseInt(tipe.split('_')[2]);
+                html += `<div class="space-y-1">`;
+                for (let s = 1; s <= count; s++) {
+                    html += `<div class="flex items-center space-x-1 text-xs">
+                        <span class="w-6 text-gray-500 font-bold">#${s}:</span>
+                        <button type="button" onclick="setTFKompleks(${id}, ${s}, ${count}, 'B', this)" class="btn-tfk-${id}-${s} border px-2 py-0.5 rounded bg-gray-100 font-bold text-green-700" data-val="">B</button>
+                        <button type="button" onclick="setTFKompleks(${id}, ${s}, ${count}, 'S', this)" class="btn-tfk-${id}-${s} border px-2 py-0.5 rounded bg-gray-100 font-bold text-red-700" data-val="">S</button>
+                    </div>`;
+                }
+                html += `</div>`;
+            }
+            else if (tipe === 'jodoh' || tipe === 'isian') {
+                html += `<input type="text" class="border p-1 text-xs w-full uppercase" onkeyup="updateTeks(${id}, this)" placeholder="${tipe === 'jodoh' ? 'Misal: 1A, 2B, 3C' : 'Jawaban...'}">`;
             } else {
                 html += `<span class="text-[10px] text-gray-500 italic">Manual</span>`;
             }
@@ -879,7 +893,31 @@
         function setPG(id, jwb, btn) {
             document.querySelector(`#baris_soal_${id} .val-kunci-final`).value = jwb;
             document.querySelectorAll(`.btn-opsi-${id}`).forEach(b => { b.classList.remove('bg-blue-500', 'text-white'); b.classList.add('bg-gray-100'); });
+            btn.classList.remove('bg-gray-100');
             btn.classList.add('bg-blue-500', 'text-white');
+        }
+
+        function setTFKompleks(id, stmtIndex, totalStmt, val, btn) {
+            document.querySelectorAll(`.btn-tfk-${id}-${stmtIndex}`).forEach(b => {
+                b.classList.remove('bg-blue-600', 'text-white', 'active-tfk');
+                b.classList.add('bg-gray-100');
+                b.setAttribute('data-val', '');
+            });
+            btn.classList.remove('bg-gray-100');
+            btn.classList.add('bg-blue-600', 'text-white', 'active-tfk');
+            btn.setAttribute('data-val', val);
+
+            let arr = [];
+            let lengkap = true;
+            for (let s = 1; s <= totalStmt; s++) {
+                const chosen = document.querySelector(`.btn-tfk-${id}-${s}.active-tfk`);
+                if (chosen && chosen.getAttribute('data-val')) {
+                    arr.push(chosen.getAttribute('data-val'));
+                } else {
+                    lengkap = false;
+                }
+            }
+            document.querySelector(`#baris_soal_${id} .val-kunci-final`).value = lengkap ? arr.join(',') : '';
         }
 
         function toggleKompleks(id, jwb, btn) {
@@ -906,8 +944,8 @@
 
             if (!namaUjian) return alert("Peringatan: Nama Ujian wajib diisi!");
             if (!mapel) return alert("Peringatan: Mata Pelajaran wajib diisi!");
-            if (!token) return alert("Peringatan: Token Buka File wajib diisi!");
-            if (!pinUjian) return alert("Peringatan: PIN Mulai Ujian wajib diisi!");
+            if (!token) return alert("Peringatan: Kode Sinkronisasi (Token) wajib diisi!");
+            if (!pinUjian) return alert("Peringatan: PIN Pengawas (Mulai Ujian) wajib diisi!");
             if (!tgl) return alert("Peringatan: Jadwal Mulai Ujian wajib diisi!");
             if (!file) return alert("Peringatan: File PDF Soal belum dipilih!");
 
@@ -936,7 +974,7 @@
                 });
             });
 
-            if(errorKunci) return alert("Ada Kunci Jawaban yang masih kosong (Atau penulisan Jodohkan salah)!");
+            if(errorKunci) return alert("Ada Kunci Jawaban yang masih kosong atau belum lengkap (Pastikan seluruh pernyataan B/S Kompleks atau Jodohkan telah terisi)!");
 
             btn.innerText = "Memproses Database & Enkripsi...";
             btn.disabled = true;
@@ -952,7 +990,7 @@
                 let pesanError = "Gagal membuat ujian!";
                 if (rpcError) {
                     if (rpcError.code === '23505' || (rpcError.message && rpcError.message.toLowerCase().includes("unique"))) {
-                        pesanError = `GAGAL: Token "${token}" sudah pernah digunakan! Silakan ganti dengan kombinasi huruf/angka lain.`;
+                        pesanError = `GAGAL: Kode Sinkronisasi / Token "${token}" sudah pernah digunakan! Silakan ganti dengan kombinasi huruf/angka lain.`;
                     } else {
                         pesanError = `Kesalahan Sistem/Server: ${rpcError.message}`;
                     }
@@ -976,12 +1014,12 @@
             reader.onload = function(e) {
                 const innerPayload = { pdf: e.target.result, soal: arraySoal };
                 const encryptedInnerData = CryptoJS.AES.encrypt(JSON.stringify(innerPayload), pinUjian).toString();
-				const tampilSkor = document.getElementById('genTampilSkor').checked;
+                const tampilSkor = document.getElementById('genTampilSkor').checked;
                 const outerPayload = { 
                     id_guru: currentUser.id, 
                     mapel: mapel, 
-					nama_ujian: namaUjian,       
-					tampilkan_skor: tampilSkor,  
+                    nama_ujian: namaUjian,       
+                    tampilkan_skor: tampilSkor,  
                     tanggal: tgl, 
                     waktu: waktu, 
                     secure_data: encryptedInnerData 
@@ -1019,7 +1057,7 @@
             document.getElementById('btnToggleTabel').className = "bg-purple-600 text-white px-4 py-2 rounded font-bold hover:bg-purple-700 shadow mr-2 transition";
             document.getElementById('judulTabelNilai').innerHTML = 'Daftar Peringkat Nilai <span class="text-xs font-normal text-gray-500 ml-2">(Klik judul tabel untuk mengurutkan)</span>';
 
-            document.getElementById('nilaiBody').innerHTML = '<tr><td colspan="8" class="text-center p-4 text-blue-600 font-bold">Sedang menarik data dari server...</td></tr>';
+            document.getElementById('nilaiBody').innerHTML = '<tr><td colspan="9" class="text-center p-4 text-blue-600 font-bold">Sedang menarik data dari server...</td></tr>';
 
             const { data, error } = await supabaseClient
                 .from('jawaban_siswa')
@@ -1095,10 +1133,15 @@
             let thead = `<tr>
                 <th class="p-2 border bg-blue-100 sticky left-0 z-10 w-8">No</th>
                 <th class="p-2 border bg-blue-100 sticky left-8 z-10 w-48">Nama Siswa</th>
+                <th class="p-2 border text-center">Sekolah</th>
                 <th class="p-2 border text-center">Kls</th>
                 <th class="p-2 border text-center">Abs</th>
                 <th class="p-2 border text-center">Ruang</th>
-                <th class="p-2 border text-center font-bold text-blue-700">Skor</th>`;
+                <th class="p-2 border text-center font-bold text-green-700">B</th>
+                <th class="p-2 border text-center font-bold text-red-600">S</th>
+                <th class="p-2 border text-center font-bold text-gray-500">Ksg</th>
+                <th class="p-2 border text-center font-bold text-indigo-700">Skor</th>
+                <th class="p-2 border text-center font-bold text-blue-700">Nilai</th>`;
             for(let i=1; i<=maxSoal; i++) {
                 thead += `<th class="p-2 border text-center bg-gray-200">S-${i}</th>`;
             }
@@ -1106,20 +1149,31 @@
 
             let tbody = '';
             dataNilaiGlobal.forEach((siswa, index) => {
-                tbody += `<tr class="hover:bg-blue-50">
-                    <td class="p-2 border text-center bg-white sticky left-0 z-10">${index + 1}</td>
-                    <td class="p-2 border font-bold bg-white sticky left-8 z-10">${siswa.nama_siswa}</td>
-                    <td class="p-2 border text-center">${siswa.kelas || '-'}</td>
-                    <td class="p-2 border text-center">${siswa.no_absen || '-'}</td>
-                    <td class="p-2 border text-center">${siswa.ruang || '-'}</td>
-                    <td class="p-2 border text-center font-black text-blue-600">${siswa.skor}</td>`;
-                
+                let jmlB = 0, jmlS = 0, jmlK = 0, totalPoin = 0;
                 let jawabanSiswaMap = {};
                 if(siswa.data_jawaban) {
                     siswa.data_jawaban.forEach(jwb => {
                         jawabanSiswaMap[jwb.nomor] = jwb;
+                        const bersih = (jwb.jawaban || '').replace(/,/g, '').trim();
+                        if (!bersih) jmlK++;
+                        else if (jwb.is_benar) jmlB++;
+                        else jmlS++;
+                        totalPoin += (jwb.poin !== undefined ? jwb.poin : (jwb.is_benar ? 1 : 0));
                     });
                 }
+
+                tbody += `<tr class="hover:bg-blue-50">
+                    <td class="p-2 border text-center bg-white sticky left-0 z-10">${index + 1}</td>
+                    <td class="p-2 border font-bold bg-white sticky left-8 z-10">${siswa.nama_siswa}</td>
+                    <td class="p-2 border text-center">${siswa.asal_sekolah || '-'}</td>
+                    <td class="p-2 border text-center">${siswa.kelas || '-'}</td>
+                    <td class="p-2 border text-center">${siswa.no_absen || '-'}</td>
+                    <td class="p-2 border text-center">${siswa.ruang || '-'}</td>
+                    <td class="p-2 border text-center font-bold text-green-700">${jmlB}</td>
+                    <td class="p-2 border text-center font-bold text-red-600">${jmlS}</td>
+                    <td class="p-2 border text-center text-gray-500">${jmlK}</td>
+                    <td class="p-2 border text-center font-bold text-indigo-700">${totalPoin}</td>
+                    <td class="p-2 border text-center font-black text-blue-600">${siswa.skor}</td>`;
 
                 for(let i=1; i<=maxSoal; i++) {
                     let jwb = jawabanSiswaMap[i];
@@ -1128,9 +1182,10 @@
                         if (jwb.tipe && jwb.tipe.includes('kompleks')) {
                             textJwb = textJwb.replace(/,/g, '');
                         }
+                        if (!textJwb.trim()) textJwb = '-';
                         
                         let colorClass = jwb.is_benar ? 'text-green-600 font-bold bg-green-50' : 'text-red-600 font-bold bg-red-50';
-                        if(!jwb.jawaban || jwb.jawaban.trim()==='') colorClass = 'text-gray-400 bg-gray-50'; 
+                        if(!jwb.jawaban || jwb.jawaban.replace(/,/g, '').trim()==='') colorClass = 'text-gray-400 bg-gray-50'; 
                         
                         tbody += `<td class="p-2 border text-center ${colorClass}">${textJwb}</td>`;
                     } else {
@@ -1152,7 +1207,7 @@
             let totalSkor = 0, lulus = 0, gagal = 0;
 
             if (dataNilaiGlobal.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="8" class="text-center p-6 text-gray-500 font-bold italic">Belum ada nilai yang masuk. Menunggu siswa mengirimkan ujian...</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="9" class="text-center p-6 text-gray-500 font-bold italic">Belum ada nilai yang masuk. Menunggu siswa mengirimkan ujian...</td></tr>';
             } else {
                 let htmlStr = '';
                 dataNilaiGlobal.forEach((row) => {
@@ -1168,6 +1223,7 @@
                         <tr class="hover:bg-blue-50">
                             <td class="p-4 text-center font-bold text-gray-400">#${row.rank}</td>
                             <td class="p-4 font-bold text-blue-900">${row.nama_siswa}</td>
+                            <td class="p-4 text-gray-600">${row.asal_sekolah || '-'}</td>
                             <td class="p-4 font-semibold text-gray-600">${row.kelas || '-'}</td>
                             <td class="p-4 text-center">${row.no_absen || '-'}</td>
                             <td class="p-4 text-center">${row.ruang || '-'}</td>
@@ -1224,7 +1280,7 @@
                             analisis[no] = { tipe: jwb.tipe, benar: 0, salah: 0, kosong: 0 };
                         }
                         
-                        let isKosong = !jwb.jawaban || jwb.jawaban.trim() === '';
+                        let isKosong = !jwb.jawaban || jwb.jawaban.replace(/,/g, '').trim() === '';
                         let isBenar = jwb.is_benar === true;
 
                         if (isKosong) {
@@ -1250,7 +1306,7 @@
                 let tr = document.createElement('tr');
                 tr.innerHTML = `
                     <td class="p-3 border text-center font-bold">${no}</td>
-                    <td class="p-3 border text-center text-xs uppercase">${data.tipe.split('_')[0]}</td>
+                    <td class="p-3 border text-center text-xs uppercase">${data.tipe.replace(/_/g, ' ')}</td>
                     <td class="p-3 border text-center font-bold text-green-600">${data.benar}</td>
                     <td class="p-3 border text-center font-bold text-red-600">${data.salah}</td>
                     <td class="p-3 border text-center text-gray-500">${data.kosong}</td>
@@ -1270,18 +1326,34 @@
                 const mnt = Math.floor(durasiTotal / 60);
                 const dtk = durasiTotal % 60;
 
+                let jmlB = 0, jmlS = 0, jmlK = 0, skorTotal = 0;
+                if (d.data_jawaban && Array.isArray(d.data_jawaban)) {
+                    d.data_jawaban.forEach(jwb => {
+                        const bersih = (jwb.jawaban || '').replace(/,/g, '').trim();
+                        if (!bersih) jmlK++;
+                        else if (jwb.is_benar) jmlB++;
+                        else jmlS++;
+                        skorTotal += (jwb.poin !== undefined ? jwb.poin : (jwb.is_benar ? 1 : 0));
+                    });
+                }
+
                 let rowData = {
                     "Peringkat": d.rank,
                     "Nama Siswa": d.nama_siswa,
+                    "Asal Sekolah": d.asal_sekolah || '-',
                     "Kelas": d.kelas,
                     "No Absen": d.no_absen,
                     "Ruang": d.ruang,
                     "No Peserta": d.no_ujian,
+                    "Jml Benar": jmlB,
+                    "Jml Salah": jmlS,
+                    "Tidak Dijawab": jmlK,
+                    "Skor Total (Poin)": skorTotal,
                     "Nilai Akhir": d.skor,
                     "Durasi Pengerjaan": `${mnt} Menit ${dtk} Detik`,
                     "Waktu Kumpul": new Date(d.created_at).toLocaleString('id-ID'),
                     "Mapel": d.mapel,
-                    "Token Ujian": d.token_ujian
+                    "Kode Sinkronisasi (Token)": d.token_ujian
                 };
 
                 if (d.data_jawaban && Array.isArray(d.data_jawaban)) {
@@ -1290,6 +1362,7 @@
                         if (jwb.tipe && jwb.tipe.includes('kompleks')) {
                             jawabanSiswa = jawabanSiswa.replace(/,/g, '');
                         }
+                        if (!jawabanSiswa.trim()) jawabanSiswa = '-';
                         rowData[`Jwb Soal ${jwb.nomor}`] = jawabanSiswa;
                         rowData[`Poin Soal ${jwb.nomor}`] = jwb.poin !== undefined ? jwb.poin : (jwb.is_benar ? 1 : 0);
                     });
@@ -1303,7 +1376,7 @@
             keys.forEach((key, i) => {
                 let max = key.length;
                 worksheetData.forEach(row => {
-                    const cellValue = row[key] ? row[key].toString() : "";
+                    const cellValue = row[key] !== undefined && row[key] !== null ? row[key].toString() : "";
                     if (cellValue.length > max) {
                         max = cellValue.length;
                     }
