@@ -854,9 +854,9 @@
                 const count = parseInt(tipe.split('_')[1]);
                 const opsi = ['A','B','C','D','E'].slice(0, count);
                 html += `<div class="flex space-x-1">`;
-                opsi.forEach(o => html += `<button type="button" onclick="setPG(${id}, '${o}', this)" class="btn-opsi-${id} border border-gray-300 w-6 h-6 text-xs rounded bg-gray-100 font-bold">${o}</button>`);
+                opsi.forEach(o => html += `<button type="button" onclick="setPG(${id}, '${o}', this)" class="btn-opsi-${id} border border-gray-300 w-6 h-6 text-xs rounded-full bg-gray-100 font-bold">${o}</button>`);
                 html += `</div>`;
-            } 
+            }
             else if (tipe.startsWith('pg_kompleks_')) {
                 const count = parseInt(tipe.split('_')[2]);
                 const opsi = ['A','B','C','D','E'].slice(0, count);
